@@ -43,7 +43,6 @@
                             {
                                 @Html.ValidationMessageFor(model => model.DriverDetails[i].Name, "", new { @class = "text-danger" })
                             }
-                            @Html.ValidationMessage("DriverName", new { @class = "text-danger" })
                         </div>
 
                         <div class="col-md-3">
@@ -52,7 +51,6 @@
                             {
                                 @Html.ValidationMessageFor(model => model.DriverDetails[i].Occupation, "", new { @class = "text-danger" })
                             }
-                            @Html.ValidationMessage("DriverOcc", new { @class = "text-danger" })
                         </div>
 
                         <div class="col-md-3" style="margin-right:20%">
@@ -61,7 +59,6 @@
                             {
                                 @Html.ValidationMessageFor(model => model.DriverDetails[i].DOB, "", new { @class = "text-danger" })
                             }
-                            @Html.ValidationMessage("DriverDOB", new { @class = "text-danger" })
                         </div>
                     </div>
 

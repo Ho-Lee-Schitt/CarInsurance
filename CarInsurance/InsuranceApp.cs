@@ -47,5 +47,9 @@ namespace CarInsurance
         [Required(ErrorMessage = "Driver is a required field")]
         [Display(Name = "Driver")]
         public List<Driver> DriverDetails { get; set; }
+
+        [DataType(DataType.Currency)]
+        [Display(Name = "Premimum Price")]
+        public double PremimumPrice { get; set; }
     }
 }

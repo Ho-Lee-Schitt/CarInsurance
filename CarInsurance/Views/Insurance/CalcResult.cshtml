@@ -7,8 +7,10 @@
 <h2>CalcResult</h2>
 
 <div>
-    <h4>InsuranceApp</h4>
     <hr />
+    @if (Model.PremimumPrice != 0)
+    {
+    <h2>Accepted</h2>
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.PolStartDate)
@@ -19,6 +21,22 @@
         </dd>
 
     </dl>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PremimumPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PremimumPrice)
+        </dd>
+
+    </dl>
+    }
+    else
+    {
+        <h2>Declined</h2>
+        @Html.ValidationMessage("TestError", new { @class = "text-danger" })
+    }
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
