@@ -1,40 +1,86 @@
 ﻿@model CarInsurance.InsuranceApp
 
 @{
-    ViewBag.Title = "CalcResult";
+    ViewBag.Title = "Insurance Calculation Result";
 }
 
-<h2>CalcResult</h2>
+<h2>Insurance Calculation Result</h2>
 
 <div>
     <hr />
     @if (Model.PremimumPrice != 0)
     {
-    <h2>Accepted</h2>
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.PolStartDate)
-        </dt>
+        <h2>Accepted</h2>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.PolStartDate)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.PolStartDate)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.PolStartDate)
+            </dd>
 
-    </dl>
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.PremimumPrice)
-        </dt>
+        </dl>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.PremimumPrice)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.PremimumPrice)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.PremimumPrice)
+            </dd>
 
-    </dl>
+        </dl>
+        for (int i = 0; i < ViewBag.TotalDrivers; i++)
+        {
+            <h4>Driver @(i + 1)</h4>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.DriverDetails[i].Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DriverDetails[i].Name)
+                </dd>
+            </dl>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.DriverDetails[i].Occupation)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DriverDetails[i].Occupation)
+                </dd>
+            </dl>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.DriverDetails[i].DOB)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DriverDetails[i].DOB)
+                </dd>
+            </dl>
+            for (int j = 0; j < 5; j++)
+            {
+                if (Model.DriverDetails[i].Claims[j].ClaimDate != null)
+                {
+                    <dl class="dl-horizontal">
+                        <dt>
+                            Claim Date @(j + 1)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.DriverDetails[i].Claims[j].ClaimDate)
+                        </dd>
+                    </dl>
+                }
+            }
+        }
     }
     else
     {
-        <h2>Declined</h2>
+        <h2> Declined </h2>
         @Html.ValidationMessage("TestError", new { @class = "text-danger" })
     }
 </div>
