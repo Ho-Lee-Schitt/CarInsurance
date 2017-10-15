@@ -15,6 +15,7 @@
         <h4>InsuranceApp</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.ValidationMessage("TestError", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.PolStartDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -24,10 +25,11 @@
         </div>
 
         <div>
-            @for (int i = 0; i < 5; i++)
+            @for (int i = 0; i < 2; i++)
             {
 
-                <div class="form-group" style="border:solid">
+                @*<div class="form-group" style="border:solid">*@
+                <div style="border:solid">
                     <div class="form-group" style="padding-left: 1%">
                         @Html.LabelFor(model => model.DriverDetails[i].Name, htmlAttributes: new { @class = "control-label col-md-2" })
 
@@ -37,27 +39,38 @@
 
                         <div class="col-md-3">
                             @Html.EditorFor(model => model.DriverDetails[i].Name, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.DriverDetails[i].Name, "", new { @class = "text-danger" })
+                            @if (i == 0)
+                            {
+                                @Html.ValidationMessageFor(model => model.DriverDetails[i].Name, "", new { @class = "text-danger" })
+                            }
+                            @Html.ValidationMessage("DriverName", new { @class = "text-danger" })
                         </div>
 
                         <div class="col-md-3">
                             @Html.EditorFor(model => model.DriverDetails[i].Occupation, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.DriverDetails[i].Occupation, "", new { @class = "text-danger" })
+                            @if (i == 0)
+                            {
+                                @Html.ValidationMessageFor(model => model.DriverDetails[i].Occupation, "", new { @class = "text-danger" })
+                            }
+                            @Html.ValidationMessage("DriverOcc", new { @class = "text-danger" })
                         </div>
 
                         <div class="col-md-3" style="margin-right:20%">
                             @Html.EditorFor(model => model.DriverDetails[i].DOB, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.DriverDetails[i].DOB, "", new { @class = "text-danger" })
+                            @if (i == 0)
+                            {
+                                @Html.ValidationMessageFor(model => model.DriverDetails[i].DOB, "", new { @class = "text-danger" })
+                            }
+                            @Html.ValidationMessage("DriverDOB", new { @class = "text-danger" })
                         </div>
                     </div>
 
                     @for (int j = 0; j < 5; j++)
                     {
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.DriverDetails[i].Claims, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="form-group" style="padding-left: 5%">
+                            @*@@Html.LabelFor(model => model.DriverDetails[i].Claims, htmlAttributes: new { @class = "control-label col-md-2" })*@
                             <div class="col-md-10">
                                 @Html.EditorFor(model => model.DriverDetails[i].Claims[j], new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.DriverDetails[i].Claims[j], "", new { @class = "text-danger" })
                             </div>
                         </div>
                     }
@@ -65,11 +78,11 @@
             }
         </div>
 
-        <div class="form-group">
+        @*<div class="form-group">*@
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>
-        </div>
+        @*</div>*@
     </div>
 }
 
@@ -77,6 +90,6 @@
     @Html.ActionLink("Back to List", "Index")
 </div>
 
-@section Scripts {
+@*@section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-}
+}*@

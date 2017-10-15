@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace CarInsurance
 {
@@ -33,10 +34,10 @@ namespace CarInsurance
 
             public class DateTimeWrapper
             {
-                [Display(Name = "")]
+                [Display(Name = "Claim Date")]
                 [DataType(DataType.Date)]
                 [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-                public DateTime Value { get; set; }
+                public DateTime? ClaimDate { get; set; }
             }
 
             [Display(Name = "Claim Date")]
