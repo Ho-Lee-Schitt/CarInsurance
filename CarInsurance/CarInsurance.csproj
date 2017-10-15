@@ -270,8 +270,8 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Insurance\Index.cshtml" />
-    <Content Include="Views\Insurance\Create.cshtml" />
     <Content Include="Views\Insurance\CalcResult.cshtml" />
+    <Content Include="Views\Insurance\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
