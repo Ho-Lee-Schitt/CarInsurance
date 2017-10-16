@@ -125,15 +125,14 @@ failed:
                                 }
                             }
                         }
-
-                    }
-                    if (ageOfYoungest >= 21 && ageOfYoungest <= 25)
-                    {
-                        premimumPrice *= 1.2;
-                    }
-                    if (ageOfYoungest >= 26 && ageOfYoungest <= 75)
-                    {
-                        premimumPrice *= 0.9;
+                        if (ageOfYoungest >= 21 && ageOfYoungest <= 25)
+                        {
+                            premimumPrice *= 1.2;
+                        }
+                        if (ageOfYoungest >= 26 && ageOfYoungest <= 75)
+                        {
+                            premimumPrice *= 0.9;
+                        }
                     }
                 }
                 obj.PremimumPrice = ((declined == true) ? 0 : premimumPrice);
