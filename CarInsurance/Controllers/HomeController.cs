@@ -16,15 +16,13 @@ namespace CarInsurance.Controllers
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-
-            return View();
+            return new HttpNotFoundResult();
         }
 
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
-
-            return View();
+            return new HttpNotFoundResult();
         }
     }
 }
